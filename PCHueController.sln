@@ -6,9 +6,6 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PCHueController", "PCHueController\PCHueController.csproj", "{30FF044D-B0A3-45B2-8DB2-681D100A7482}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{7D451AF4-8E2D-47A2-BC0C-9DA72428F7E6}"
-	ProjectSection(SolutionItems) = preProject
-		Helpful web links.txt = Helpful web links.txt
-	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

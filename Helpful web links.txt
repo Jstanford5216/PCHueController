@@ -1,2 +1,0 @@
-C# Wrapper:
-https://github.com/Q42/Q42.HueApi
