@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using Q42.HueApi;
 using Q42.HueApi.Interfaces;
 using Q42.HueApi.Models.Bridge;
+using Q42.HueApi.Models;
 using Q42.HueApi.ColorConverters;
 using Q42.HueApi.ColorConverters.OriginalWithModel;
 
@@ -21,7 +22,13 @@ namespace PCHueController
 
         static ILocalHueClient client = null;
 
-        public PCHueController()
+        static IEnumerable<Light> lights = null;
+
+        public List<string> selectedLights = new List<string>();
+
+        static IEnumerable<Scene> scenes = null;
+
+    public PCHueController()
         {
             InitializeComponent();
             GetBridgeIps();
@@ -61,6 +68,8 @@ namespace PCHueController
                 string listFormat = string.Format("{0} ({1})", item.BridgeId, item.IpAddress);
                 lstHubs.Items.Add(listFormat);
             }
+
+            lstHubs.SelectedIndex = 0;
         }
 
         private void lstHubs_SelectedIndexChanged(object sender, EventArgs e)
@@ -84,7 +93,26 @@ namespace PCHueController
 
         public async Task commandSender(LightCommand command)
         {
-            await client.SendCommandAsync(command);
+            await client.SendCommandAsync(command, selectedLights);
+
+            btnOnOff.BackgroundImage = Properties.Resources.On;
+        }
+
+        public async Task sceneSender(string sceneName)
+        {
+            string id = "";
+
+            foreach (var item in scenes)
+            {
+                if (item.Name == sceneName)
+                {
+                    id = item.Id;
+                }
+            }
+
+            await client.RecallSceneAsync(id,"0");
+
+            btnOnOff.BackgroundImage = Properties.Resources.On;
         }
 
         public async Task RegisterTask()
@@ -98,8 +126,8 @@ namespace PCHueController
                     var appKey = await client.RegisterAsync("PCHueController", "***REMOVED***");
                     txtResults.Show();
                     txtResults.Text = "App registered successfully." + Environment.NewLine + appKey;
+                    txtInputKey.Text = appKey;
                     txtResults.BackColor = Color.Green;
-                    client.Initialize(appKey);
                 }
                 catch
                 {
@@ -176,17 +204,57 @@ namespace PCHueController
 
                         try
                         {
-                            IEnumerable<Light> lights = client.GetLightsAsync().Result;
+                            lights = client.GetLightsAsync().Result;
 
                             Color col = new Color();
 
+                            lstLights.Items.Clear();
+                            
+                            selectedLights.Clear();
+
+                            scenes = null;
+
+                            lstScenes.Items.Clear();
+
+                            lstLights.Items.Add("All");
+
+                            int lightsOn = 0;
+
                             foreach (var item in lights)
                             {
+                                lstLights.Items.Add(item.Name);
+
                                 string id= item.ModelId;
                                 col = ColorTranslator.FromHtml("#" + item.State.ToHex(id));
+
+                                if (item.State.On == true)
+                                {
+                                    lightsOn++;
+                                }
                             }
 
+                            if (lightsOn < 1)
+                            {
+                                btnOnOff.BackgroundImage = Properties.Resources.Off;
+                            }
+
+                            else
+                            {
+                                btnOnOff.BackgroundImage = Properties.Resources.On;
+                            }
+
+                            lstLights.SelectedIndex = 0;
+
                             pnlCurrentSwatch.BackColor = col;
+
+                            lstScenes.Items.Add("Color loop");
+
+                            scenes = client.GetScenesAsync().Result.Where(s => !s.Name.Contains("Scene"));
+
+                            foreach (var item2 in scenes)
+                            {
+                                lstScenes.Items.Add(item2.Name);
+                            }
                         }
                         catch
                         {
@@ -198,7 +266,7 @@ namespace PCHueController
                     {
                         txtResults.BackColor = Color.Red;
                         txtResults.Show();
-                        txtResults.Text = "Connection failed ensure you have choosen a device and that your key is correct.";
+                        txtResults.Text = "Connection failed ensure you have choosen the right device and that your key is correct.";
                     }
                 }
 
@@ -206,7 +274,7 @@ namespace PCHueController
                 {
                     txtResults.BackColor = Color.Red;
                     txtResults.Show();
-                    txtResults.Text = "Connection failed ensure you have choosen a device and that your key is correct.";
+                    txtResults.Text = "Connection failed ensure you have choosen the right device and that your key is correct.";
                 }
             }
             else
@@ -217,42 +285,158 @@ namespace PCHueController
             }
         }
 
-        private void btnColorloop_Click(object sender, EventArgs e)
+        private void lstLights_SelectedIndexChanged(object sender, EventArgs e)
         {
-            clientConnection();
+            string selectedIndex = null;
 
-            if (client != null)
+            try
             {
-                var command = new LightCommand();
-                command.TurnOn().Effect = Effect.ColorLoop;
-                commandSender(command);
+                selectedIndex = lstLights.SelectedItem.ToString(); ;
+            }
+            catch
+            {
+
+            }
+
+            selectedLights.Clear();
+
+            int lightsOn = 0;
+
+            foreach (var item in lights)
+            {
+                if (selectedIndex == "All")
+                {
+                    selectedLights.Add(item.Id);
+
+                    if(item.State.On == true)
+                    {
+                        lightsOn++;
+                    }
+                }
+
+                else if (item.Name == selectedIndex)
+                {
+                    if(item.State.On == true)
+                    {
+                        lightsOn++;
+                    }
+
+                    selectedLights.Add(item.Id);
+                }
+            }
+
+            if(lightsOn > 0)
+            {
+                btnOnOff.BackgroundImage = Properties.Resources.On;
             }
 
             else
             {
-                txtResults.BackColor = Color.Red;
-                txtResults.Show();
-                txtResults.Text = "Connection failed ensure you have internet connection.";
+                btnOnOff.BackgroundImage = Properties.Resources.Off;
             }
         }
 
-        private void btnOceanM_Click(object sender, EventArgs e)
+        private void btnRefresh_Click(object sender, EventArgs e)
         {
-            clientConnection();
+            scenes = null;
 
-            if (client != null)
+            lstScenes.Items.Clear();
+
+            lstScenes.Items.Add("Color loop");
+
+            scenes = client.GetScenesAsync().Result.Where(s => !s.Name.Contains("Scene"));
+
+            foreach (var item2 in scenes)
             {
-                var command = new SceneCommand();
-                command.Scene = "Ocean Mist";
-                sceneSender(command);
+                lstScenes.Items.Add(item2.Name);
+            }
+        }
+
+        private void lstScenes_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string sceneIndex = "";
+
+            try
+            {
+                sceneIndex = lstScenes.SelectedItem.ToString();
+
+                if (sceneIndex == "Color loop")
+                {
+                    var command = new LightCommand();
+                    command.TurnOn().Effect = Effect.ColorLoop;
+                    command.TransitionTime = new TimeSpan(0,0,0,1);
+                    commandSender(command);
+                    btnOnOff.BackgroundImage = Properties.Resources.On;
+                }
+
+                else
+                {
+                    sceneSender(sceneIndex);
+                }
+            }
+
+            catch
+            {
+
+            }
+        }
+
+        private void btnOnOff_Click(object sender, EventArgs e)
+        {
+
+            lights = client.GetLightsAsync().Result;
+
+            int lightsOn = 0;
+
+            foreach (var item in lights)
+            {
+                if (lstLights.SelectedItem.ToString() == "All")
+                {
+                    if (item.State.On == true)
+                    {
+                        lightsOn++;
+                    }
+                }
+
+                else if (item.Name == lstLights.SelectedItem.ToString())
+                {
+                    if(item.State.On == true)
+                    {
+                        var command = new LightCommand();
+                        command.TurnOff();
+                        commandSender(command);
+                        btnOnOff.BackgroundImage = Properties.Resources.Off;
+                    }
+
+                    else
+                    {
+                        var command = new LightCommand();
+                        command.TurnOn();
+                        commandSender(command);
+                        btnOnOff.BackgroundImage = Properties.Resources.On;
+                    }
+                }
+            }
+
+            if(lightsOn > 0)
+            {
+                var command = new LightCommand();
+                command.TurnOff();
+                commandSender(command);
+                btnOnOff.BackgroundImage = Properties.Resources.Off;
             }
 
             else
             {
-                txtResults.BackColor = Color.Red;
-                txtResults.Show();
-                txtResults.Text = "Connection failed ensure you have internet connection.";
+                var command = new LightCommand();
+                command.TurnOn();
+                commandSender(command);
+                btnOnOff.BackgroundImage = Properties.Resources.On;
             }
+
+            //var command = new LightCommand();
+            //command.TurnOff();
+            //commandSender(command);
         }
     }
 }
