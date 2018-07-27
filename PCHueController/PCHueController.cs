@@ -28,6 +28,8 @@ namespace PCHueController
 
         static IEnumerable<Scene> scenes = null;
 
+        static bool discoToggle = false; 
+
     public PCHueController()
         {
             InitializeComponent();
@@ -47,14 +49,14 @@ namespace PCHueController
                 {
                     txtResults.BackColor = Color.Red;
                     txtResults.Show();
-                    txtResults.Text = "Connection failed ensure you have internet connection.";
+                    txtResults.Text = "Connection failed, please make sure you are connected to the internet and have pressed connect.";
                 }
             }
             else
             {
                 txtResults.BackColor = Color.Red;
                 txtResults.Show();
-                txtResults.Text = "Connection failed ensure you have internet connection.";
+                txtResults.Text = "Connection failed, please make sure you are connected to the internet and have pressed connect.";
             }
         }
 
@@ -87,19 +89,30 @@ namespace PCHueController
 
         private void btnNewColour_Click(object sender, EventArgs e)
         {
-            LoadColorPick();
+            try
+            {
+                bool c = client.CheckConnection().Result;
+
+                LoadColorPick();
+            }
+
+            catch 
+            {
+                txtResults.BackColor = Color.Red;
+                txtResults.Show();
+                txtResults.Text = "Connection failed, please make sure you are connected to the internet and have pressed connect.";
+            }
         }
 
 
         public async Task commandSender(LightCommand command)
         {
             await client.SendCommandAsync(command, selectedLights);
-
-            btnOnOff.BackgroundImage = Properties.Resources.On;
         }
 
         public async Task sceneSender(string sceneName)
         {
+
             string id = "";
 
             foreach (var item in scenes)
@@ -111,8 +124,6 @@ namespace PCHueController
             }
 
             await client.RecallSceneAsync(id,"0");
-
-            btnOnOff.BackgroundImage = Properties.Resources.On;
         }
 
         public async Task RegisterTask()
@@ -146,7 +157,19 @@ namespace PCHueController
 
         private void btnRegister_Click(object sender, EventArgs e)
         {
-            RegisterTask();
+            try
+            {
+                bool c = client.CheckConnection().Result;
+
+                RegisterTask();
+            }
+
+            catch
+            {
+                txtResults.BackColor = Color.Red;
+                txtResults.Show();
+                txtResults.Text = "Connection failed, please make sure you are connected to the internet and have pressed connect.";
+            }
         }
 
         public void LoadColorPick()
@@ -154,8 +177,6 @@ namespace PCHueController
             ColorDialog MyDialog = new ColorDialog();
             // Keeps the user from selecting a custom color.
             MyDialog.AllowFullOpen = true;
-            // Allows the user to get help. (The default is false.)
-            MyDialog.ShowHelp = true;
             // Sets the initial color select to the current text color.
             MyDialog.Color = pnlCurrentSwatch.BackColor;
 
@@ -171,14 +192,14 @@ namespace PCHueController
                     RGBColor convert = new RGBColor(MyDialog.Color.R, MyDialog.Color.G, MyDialog.Color.B);
 
                     LightCommand command = new LightCommand();
-
+                    
                     command.Effect = Effect.None;
 
                     commandSender(command);
 
                     command.Effect = null;
 
-                    command.TurnOn().SetColor(convert).Brightness = MyDialog.Color.A;
+                    command.TurnOn().SetColor(convert);
 
                     commandSender(command);
                 }
@@ -193,7 +214,6 @@ namespace PCHueController
             {
                 try
                 {
-
                     client.Initialize(txtInputKey.Text);
 
                     if (client.CheckConnection().Result == true)
@@ -248,6 +268,7 @@ namespace PCHueController
                             pnlCurrentSwatch.BackColor = col;
 
                             lstScenes.Items.Add("Color loop");
+                            lstScenes.Items.Add("Disco");
 
                             scenes = client.GetScenesAsync().Result.Where(s => !s.Name.Contains("Scene"));
 
@@ -291,7 +312,8 @@ namespace PCHueController
 
             try
             {
-                selectedIndex = lstLights.SelectedItem.ToString(); ;
+                selectedIndex = lstLights.SelectedItem.ToString();
+                lights = client.GetLightsAsync().Result;
             }
             catch
             {
@@ -338,17 +360,30 @@ namespace PCHueController
 
         private void btnRefresh_Click(object sender, EventArgs e)
         {
-            scenes = null;
-
-            lstScenes.Items.Clear();
-
-            lstScenes.Items.Add("Color loop");
-
-            scenes = client.GetScenesAsync().Result.Where(s => !s.Name.Contains("Scene"));
-
-            foreach (var item2 in scenes)
+            try
             {
-                lstScenes.Items.Add(item2.Name);
+                bool c = client.CheckConnection().Result;
+
+                scenes = null;
+
+                lstScenes.Items.Clear();
+
+                lstScenes.Items.Add("Color loop");
+                lstScenes.Items.Add("Disco");
+
+                scenes = client.GetScenesAsync().Result.Where(s => !s.Name.Contains("Scene"));
+
+                foreach (var item2 in scenes)
+                {
+                    lstScenes.Items.Add(item2.Name);
+                }
+            }
+
+            catch
+            {
+                txtResults.BackColor = Color.Red;
+                txtResults.Show();
+                txtResults.Text = "Connection failed, please make sure you are connected to the internet and have pressed connect.";
             }
         }
 
@@ -362,6 +397,7 @@ namespace PCHueController
 
                 if (sceneIndex == "Color loop")
                 {
+                    discoToggle = false;
                     var command = new LightCommand();
                     command.TurnOn().Effect = Effect.ColorLoop;
                     command.TransitionTime = new TimeSpan(0,0,0,1);
@@ -369,8 +405,16 @@ namespace PCHueController
                     btnOnOff.BackgroundImage = Properties.Resources.On;
                 }
 
+                else if (sceneIndex == "Disco")
+                {
+                    btnOnOff.BackgroundImage = Properties.Resources.On;
+                    discoToggle = true;
+                    discoThread();
+                }
+
                 else
                 {
+                    discoToggle = false;
                     sceneSender(sceneIndex);
                 }
             }
@@ -383,60 +427,104 @@ namespace PCHueController
 
         private void btnOnOff_Click(object sender, EventArgs e)
         {
-
-            lights = client.GetLightsAsync().Result;
-
-            int lightsOn = 0;
-
-            foreach (var item in lights)
+            try
             {
-                if (lstLights.SelectedItem.ToString() == "All")
+                lights = client.GetLightsAsync().Result;
+
+                int lightsOn = 0;
+                bool isAll = false;
+
+                foreach (var item in lights)
                 {
-                    if (item.State.On == true)
+                    if (lstLights.SelectedItem.ToString() == "All")
                     {
-                        lightsOn++;
+                        if (item.State.On == true)
+                        {
+                            lightsOn++;
+                        }
+
+                        isAll = true;
+                    }
+
+                    else if (item.Name == lstLights.SelectedItem.ToString())
+                    {
+                        if (item.State.On == true)
+                        {
+                            var command = new LightCommand();
+                            command.TurnOff();
+                            commandSender(command);
+                            btnOnOff.BackgroundImage = Properties.Resources.Off;
+                        }
+
+                        else
+                        {
+                            var command = new LightCommand();
+                            command.TurnOn();
+                            commandSender(command);
+                            btnOnOff.BackgroundImage = Properties.Resources.On;
+                        }
                     }
                 }
 
-                else if (item.Name == lstLights.SelectedItem.ToString())
+                if (lightsOn > 0 && isAll == true)
                 {
-                    if(item.State.On == true)
-                    {
-                        var command = new LightCommand();
-                        command.TurnOff();
-                        commandSender(command);
-                        btnOnOff.BackgroundImage = Properties.Resources.Off;
-                    }
+                    discoToggle = false;
+                    var command = new LightCommand();
+                    command.TurnOff();
+                    commandSender(command);
+                    btnOnOff.BackgroundImage = Properties.Resources.Off;
+                }
 
-                    else
-                    {
-                        var command = new LightCommand();
-                        command.TurnOn();
-                        commandSender(command);
-                        btnOnOff.BackgroundImage = Properties.Resources.On;
-                    }
+                else if (lightsOn == 0 && isAll == true)
+                {
+                    var command = new LightCommand();
+                    command.TurnOn();
+                    commandSender(command);
+                    btnOnOff.BackgroundImage = Properties.Resources.On;
                 }
             }
 
-            if(lightsOn > 0)
+            catch
+            {
+                txtResults.BackColor = Color.Red;
+                txtResults.Show();
+                txtResults.Text = "Connection failed, please make sure you are connected to the internet and have pressed connect.";
+            }
+        }
+
+        public async Task discoThread()
+        {
+            while (discoToggle == true)
+            {
+                List<RGBColor> colorList = new List<RGBColor>();
+
+                Random rnd = new Random();
+
+                foreach (var item in lights)
+                {
+                    Color randomColor = Color.FromArgb(rnd.Next(256), rnd.Next(256), rnd.Next(256));
+
+                    RGBColor convert = new RGBColor(randomColor.R, randomColor.G, randomColor.B);
+
+                    pnlCurrentSwatch.BackColor = randomColor;
+
+                    colorList.Add(convert);
+                }
+
+                await discoThread2(colorList);
+            }
+        }
+
+        public async Task discoThread2(List<RGBColor> colorList)
+        {
+            for (int i = 0; i < lights.Count(); i++)
             {
                 var command = new LightCommand();
-                command.TurnOff();
-                commandSender(command);
-                btnOnOff.BackgroundImage = Properties.Resources.Off;
-            }
 
-            else
-            {
-                var command = new LightCommand();
-                command.TurnOn();
-                commandSender(command);
-                btnOnOff.BackgroundImage = Properties.Resources.On;
-            }
+                command.TurnOn().SetColor(colorList[i]);
 
-            //var command = new LightCommand();
-            //command.TurnOff();
-            //commandSender(command);
+                await client.SendCommandAsync(command, new List<string> { (i + 1).ToString() });
+            }
         }
     }
 }
