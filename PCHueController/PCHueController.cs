@@ -13,6 +13,7 @@ using Q42.HueApi.Models.Bridge;
 using Q42.HueApi.Models;
 using Q42.HueApi.ColorConverters;
 using Q42.HueApi.ColorConverters.OriginalWithModel;
+using System.Threading;
 
 namespace PCHueController
 {
@@ -186,7 +187,9 @@ namespace PCHueController
                 clientConnection();
 
                 if (client != null)
-                {                      
+                {
+                    discoToggle = false;
+
                     pnlCurrentSwatch.BackColor = MyDialog.Color;
 
                     RGBColor convert = new RGBColor(MyDialog.Color.R, MyDialog.Color.G, MyDialog.Color.B);
@@ -398,17 +401,22 @@ namespace PCHueController
                 if (sceneIndex == "Color loop")
                 {
                     discoToggle = false;
+
                     var command = new LightCommand();
+
                     command.TurnOn().Effect = Effect.ColorLoop;
-                    command.TransitionTime = new TimeSpan(0,0,0,1);
+
                     commandSender(command);
+
                     btnOnOff.BackgroundImage = Properties.Resources.On;
                 }
 
                 else if (sceneIndex == "Disco")
                 {
                     btnOnOff.BackgroundImage = Properties.Resources.On;
+
                     discoToggle = true;
+
                     discoThread();
                 }
 
@@ -512,6 +520,8 @@ namespace PCHueController
                 }
 
                 await discoThread2(colorList);
+
+                Thread.Sleep(500);
             }
         }
 
