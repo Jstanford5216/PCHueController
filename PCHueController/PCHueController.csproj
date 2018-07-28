@@ -148,6 +148,8 @@
     <None Include="Resources\Webpalette.jpg" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Resources\Logo_Large.png" />
+    <Content Include="Resources\Logo_small.ico" />
     <Content Include="Resources\Off.png" />
     <Content Include="Resources\On.png" />
   </ItemGroup>
