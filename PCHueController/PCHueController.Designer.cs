@@ -310,6 +310,7 @@
             this.Controls.Add(this.pnlCurrentSwatch);
             this.Controls.Add(this.grpConnection);
             this.Controls.Add(this.grpColour);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "PCHueController";
             this.Text = "PCHueController";
             this.grpConnection.ResumeLayout(false);
