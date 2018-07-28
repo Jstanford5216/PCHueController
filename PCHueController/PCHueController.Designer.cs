@@ -37,28 +37,32 @@
             this.btnNewColour = new System.Windows.Forms.Button();
             this.lblTitle2 = new System.Windows.Forms.Label();
             this.lblTitle4 = new System.Windows.Forms.Label();
-            this.txtInputKey = new System.Windows.Forms.TextBox();
+            this.txtKey = new System.Windows.Forms.TextBox();
             this.btnConnect = new System.Windows.Forms.Button();
             this.txtResults = new System.Windows.Forms.TextBox();
             this.grpConnection = new System.Windows.Forms.GroupBox();
+            this.lblDeviceName = new System.Windows.Forms.Label();
+            this.lblAppName = new System.Windows.Forms.Label();
+            this.txtDeviceName = new System.Windows.Forms.TextBox();
+            this.txtAppName = new System.Windows.Forms.TextBox();
+            this.btnRefreshHubs = new System.Windows.Forms.Button();
             this.grpColour = new System.Windows.Forms.GroupBox();
+            this.btnRefreshScene = new System.Windows.Forms.Button();
             this.lstScenes = new System.Windows.Forms.ListBox();
             this.btnOnOff = new System.Windows.Forms.Button();
-            this.btnRefresh = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btnRefreshLights = new System.Windows.Forms.Button();
             this.lstLights = new System.Windows.Forms.ListBox();
             this.lblTitle3 = new System.Windows.Forms.Label();
-            this.grpExtra = new System.Windows.Forms.GroupBox();
             this.grpConnection.SuspendLayout();
             this.grpColour.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            this.grpExtra.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlCurrentSwatch
             // 
             this.pnlCurrentSwatch.BackColor = System.Drawing.Color.White;
-            this.pnlCurrentSwatch.Location = new System.Drawing.Point(637, 35);
+            this.pnlCurrentSwatch.Location = new System.Drawing.Point(691, 39);
             this.pnlCurrentSwatch.Name = "pnlCurrentSwatch";
             this.pnlCurrentSwatch.Size = new System.Drawing.Size(86, 60);
             this.pnlCurrentSwatch.TabIndex = 0;
@@ -68,7 +72,7 @@
             this.lblCurrent.AutoSize = true;
             this.lblCurrent.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.lblCurrent.ForeColor = System.Drawing.Color.White;
-            this.lblCurrent.Location = new System.Drawing.Point(623, 12);
+            this.lblCurrent.Location = new System.Drawing.Point(677, 16);
             this.lblCurrent.Name = "lblCurrent";
             this.lblCurrent.Size = new System.Drawing.Size(116, 20);
             this.lblCurrent.TabIndex = 0;
@@ -78,9 +82,9 @@
             // 
             this.btnRegister.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.btnRegister.ForeColor = System.Drawing.Color.White;
-            this.btnRegister.Location = new System.Drawing.Point(36, 309);
+            this.btnRegister.Location = new System.Drawing.Point(259, 295);
             this.btnRegister.Name = "btnRegister";
-            this.btnRegister.Size = new System.Drawing.Size(93, 37);
+            this.btnRegister.Size = new System.Drawing.Size(90, 24);
             this.btnRegister.TabIndex = 2;
             this.btnRegister.Text = "Get API Key";
             this.btnRegister.UseVisualStyleBackColor = true;
@@ -91,9 +95,9 @@
             this.lstHubs.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.lstHubs.ForeColor = System.Drawing.Color.White;
             this.lstHubs.FormattingEnabled = true;
-            this.lstHubs.Location = new System.Drawing.Point(17, 77);
+            this.lstHubs.Location = new System.Drawing.Point(10, 97);
             this.lstHubs.Name = "lstHubs";
-            this.lstHubs.Size = new System.Drawing.Size(262, 95);
+            this.lstHubs.Size = new System.Drawing.Size(339, 95);
             this.lstHubs.TabIndex = 3;
             this.lstHubs.SelectedIndexChanged += new System.EventHandler(this.lstHubs_SelectedIndexChanged);
             // 
@@ -102,7 +106,7 @@
             this.lblTitle1.AutoSize = true;
             this.lblTitle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.lblTitle1.ForeColor = System.Drawing.Color.White;
-            this.lblTitle1.Location = new System.Drawing.Point(13, 44);
+            this.lblTitle1.Location = new System.Drawing.Point(5, 25);
             this.lblTitle1.Name = "lblTitle1";
             this.lblTitle1.Size = new System.Drawing.Size(222, 20);
             this.lblTitle1.TabIndex = 4;
@@ -114,7 +118,7 @@
             this.btnNewColour.ForeColor = System.Drawing.Color.White;
             this.btnNewColour.Image = ((System.Drawing.Image)(resources.GetObject("btnNewColour.Image")));
             this.btnNewColour.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnNewColour.Location = new System.Drawing.Point(107, 57);
+            this.btnNewColour.Location = new System.Drawing.Point(66, 57);
             this.btnNewColour.Name = "btnNewColour";
             this.btnNewColour.Size = new System.Drawing.Size(80, 39);
             this.btnNewColour.TabIndex = 1;
@@ -127,7 +131,7 @@
             this.lblTitle2.AutoSize = true;
             this.lblTitle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.lblTitle2.ForeColor = System.Drawing.Color.White;
-            this.lblTitle2.Location = new System.Drawing.Point(13, 210);
+            this.lblTitle2.Location = new System.Drawing.Point(6, 223);
             this.lblTitle2.Name = "lblTitle2";
             this.lblTitle2.Size = new System.Drawing.Size(190, 40);
             this.lblTitle2.TabIndex = 7;
@@ -144,25 +148,24 @@
             this.lblTitle4.TabIndex = 8;
             this.lblTitle4.Text = "4.Choose Colour/Effect";
             // 
-            // txtInputKey
+            // txtKey
             // 
-            this.txtInputKey.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.txtInputKey.ForeColor = System.Drawing.Color.White;
-            this.txtInputKey.Location = new System.Drawing.Point(17, 263);
-            this.txtInputKey.MaxLength = 50;
-            this.txtInputKey.Multiline = true;
-            this.txtInputKey.Name = "txtInputKey";
-            this.txtInputKey.Size = new System.Drawing.Size(262, 32);
-            this.txtInputKey.TabIndex = 9;
-            this.txtInputKey.Text = "***REMOVED***";
+            this.txtKey.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.txtKey.ForeColor = System.Drawing.Color.White;
+            this.txtKey.Location = new System.Drawing.Point(9, 328);
+            this.txtKey.MaxLength = 50;
+            this.txtKey.Multiline = true;
+            this.txtKey.Name = "txtKey";
+            this.txtKey.Size = new System.Drawing.Size(244, 39);
+            this.txtKey.TabIndex = 9;
             // 
             // btnConnect
             // 
             this.btnConnect.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.btnConnect.ForeColor = System.Drawing.Color.White;
-            this.btnConnect.Location = new System.Drawing.Point(161, 309);
+            this.btnConnect.Location = new System.Drawing.Point(259, 328);
             this.btnConnect.Name = "btnConnect";
-            this.btnConnect.Size = new System.Drawing.Size(93, 37);
+            this.btnConnect.Size = new System.Drawing.Size(90, 39);
             this.btnConnect.TabIndex = 10;
             this.btnConnect.Text = "Connect";
             this.btnConnect.UseVisualStyleBackColor = true;
@@ -173,7 +176,7 @@
             this.txtResults.BackColor = System.Drawing.Color.DarkGreen;
             this.txtResults.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtResults.ForeColor = System.Drawing.Color.White;
-            this.txtResults.Location = new System.Drawing.Point(246, 402);
+            this.txtResults.Location = new System.Drawing.Point(235, 404);
             this.txtResults.MaxLength = 50;
             this.txtResults.Multiline = true;
             this.txtResults.Name = "txtResults";
@@ -185,43 +188,113 @@
             // 
             // grpConnection
             // 
+            this.grpConnection.Controls.Add(this.lblDeviceName);
+            this.grpConnection.Controls.Add(this.lblAppName);
+            this.grpConnection.Controls.Add(this.txtDeviceName);
+            this.grpConnection.Controls.Add(this.txtAppName);
+            this.grpConnection.Controls.Add(this.btnRefreshHubs);
             this.grpConnection.Controls.Add(this.lblTitle2);
             this.grpConnection.Controls.Add(this.btnConnect);
             this.grpConnection.Controls.Add(this.lblTitle1);
-            this.grpConnection.Controls.Add(this.txtInputKey);
+            this.grpConnection.Controls.Add(this.txtKey);
             this.grpConnection.Controls.Add(this.btnRegister);
             this.grpConnection.Controls.Add(this.lstHubs);
             this.grpConnection.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
             this.grpConnection.ForeColor = System.Drawing.Color.White;
             this.grpConnection.Location = new System.Drawing.Point(12, 12);
             this.grpConnection.Name = "grpConnection";
-            this.grpConnection.Size = new System.Drawing.Size(291, 384);
+            this.grpConnection.Size = new System.Drawing.Size(355, 384);
             this.grpConnection.TabIndex = 12;
             this.grpConnection.TabStop = false;
             this.grpConnection.Text = "Connection";
             // 
+            // lblDeviceName
+            // 
+            this.lblDeviceName.AutoSize = true;
+            this.lblDeviceName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.lblDeviceName.Location = new System.Drawing.Point(133, 277);
+            this.lblDeviceName.Name = "lblDeviceName";
+            this.lblDeviceName.Size = new System.Drawing.Size(75, 13);
+            this.lblDeviceName.TabIndex = 17;
+            this.lblDeviceName.Text = "Device Name:";
+            // 
+            // lblAppName
+            // 
+            this.lblAppName.AutoSize = true;
+            this.lblAppName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.lblAppName.Location = new System.Drawing.Point(6, 277);
+            this.lblAppName.Name = "lblAppName";
+            this.lblAppName.Size = new System.Drawing.Size(60, 13);
+            this.lblAppName.TabIndex = 16;
+            this.lblAppName.Text = "App Name:";
+            // 
+            // txtDeviceName
+            // 
+            this.txtDeviceName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.txtDeviceName.ForeColor = System.Drawing.Color.White;
+            this.txtDeviceName.Location = new System.Drawing.Point(136, 296);
+            this.txtDeviceName.MaxLength = 25;
+            this.txtDeviceName.Name = "txtDeviceName";
+            this.txtDeviceName.Size = new System.Drawing.Size(117, 20);
+            this.txtDeviceName.TabIndex = 15;
+            // 
+            // txtAppName
+            // 
+            this.txtAppName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.txtAppName.ForeColor = System.Drawing.Color.White;
+            this.txtAppName.Location = new System.Drawing.Point(9, 296);
+            this.txtAppName.MaxLength = 25;
+            this.txtAppName.Name = "txtAppName";
+            this.txtAppName.Size = new System.Drawing.Size(117, 20);
+            this.txtAppName.TabIndex = 14;
+            // 
+            // btnRefreshHubs
+            // 
+            this.btnRefreshHubs.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.btnRefreshHubs.ForeColor = System.Drawing.Color.White;
+            this.btnRefreshHubs.Location = new System.Drawing.Point(139, 48);
+            this.btnRefreshHubs.Name = "btnRefreshHubs";
+            this.btnRefreshHubs.Size = new System.Drawing.Size(80, 39);
+            this.btnRefreshHubs.TabIndex = 13;
+            this.btnRefreshHubs.Text = "Refresh Hubs";
+            this.btnRefreshHubs.UseVisualStyleBackColor = true;
+            this.btnRefreshHubs.Click += new System.EventHandler(this.btnRefreshHubs_Click);
+            // 
             // grpColour
             // 
+            this.grpColour.Controls.Add(this.btnRefreshScene);
             this.grpColour.Controls.Add(this.lstScenes);
             this.grpColour.Controls.Add(this.lblTitle4);
             this.grpColour.Controls.Add(this.btnNewColour);
             this.grpColour.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
             this.grpColour.ForeColor = System.Drawing.Color.White;
-            this.grpColour.Location = new System.Drawing.Point(319, 206);
+            this.grpColour.Location = new System.Drawing.Point(373, 206);
             this.grpColour.Name = "grpColour";
             this.grpColour.Size = new System.Drawing.Size(298, 190);
             this.grpColour.TabIndex = 13;
             this.grpColour.TabStop = false;
             this.grpColour.Text = "Colour";
             // 
+            // btnRefreshScene
+            // 
+            this.btnRefreshScene.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.btnRefreshScene.ForeColor = System.Drawing.Color.White;
+            this.btnRefreshScene.Location = new System.Drawing.Point(152, 57);
+            this.btnRefreshScene.Name = "btnRefreshScene";
+            this.btnRefreshScene.Size = new System.Drawing.Size(80, 39);
+            this.btnRefreshScene.TabIndex = 12;
+            this.btnRefreshScene.Text = "Refresh Scenes";
+            this.btnRefreshScene.UseVisualStyleBackColor = true;
+            this.btnRefreshScene.Click += new System.EventHandler(this.btnRefreshScene_Click);
+            // 
             // lstScenes
             // 
             this.lstScenes.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.lstScenes.ForeColor = System.Drawing.Color.White;
             this.lstScenes.FormattingEnabled = true;
-            this.lstScenes.Location = new System.Drawing.Point(11, 102);
+            this.lstScenes.Location = new System.Drawing.Point(6, 102);
             this.lstScenes.Name = "lstScenes";
-            this.lstScenes.Size = new System.Drawing.Size(281, 82);
+            this.lstScenes.Size = new System.Drawing.Size(286, 82);
             this.lstScenes.TabIndex = 12;
             this.lstScenes.SelectedIndexChanged += new System.EventHandler(this.lstScenes_SelectedIndexChanged);
             // 
@@ -231,46 +304,47 @@
             this.btnOnOff.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnOnOff.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.btnOnOff.ForeColor = System.Drawing.Color.White;
-            this.btnOnOff.Location = new System.Drawing.Point(34, 74);
+            this.btnOnOff.Location = new System.Drawing.Point(702, 105);
             this.btnOnOff.Name = "btnOnOff";
             this.btnOnOff.Size = new System.Drawing.Size(58, 99);
             this.btnOnOff.TabIndex = 13;
             this.btnOnOff.UseVisualStyleBackColor = true;
             this.btnOnOff.Click += new System.EventHandler(this.btnOnOff_Click);
             // 
-            // btnRefresh
-            // 
-            this.btnRefresh.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.btnRefresh.ForeColor = System.Drawing.Color.White;
-            this.btnRefresh.Location = new System.Drawing.Point(34, 29);
-            this.btnRefresh.Name = "btnRefresh";
-            this.btnRefresh.Size = new System.Drawing.Size(58, 39);
-            this.btnRefresh.TabIndex = 12;
-            this.btnRefresh.Text = "Refresh scenes";
-            this.btnRefresh.UseVisualStyleBackColor = true;
-            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
-            // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.btnRefreshLights);
             this.groupBox2.Controls.Add(this.lstLights);
             this.groupBox2.Controls.Add(this.lblTitle3);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
             this.groupBox2.ForeColor = System.Drawing.Color.White;
-            this.groupBox2.Location = new System.Drawing.Point(319, 12);
+            this.groupBox2.Location = new System.Drawing.Point(373, 12);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(298, 188);
             this.groupBox2.TabIndex = 14;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Lights";
             // 
+            // btnRefreshLights
+            // 
+            this.btnRefreshLights.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.btnRefreshLights.ForeColor = System.Drawing.Color.White;
+            this.btnRefreshLights.Location = new System.Drawing.Point(111, 48);
+            this.btnRefreshLights.Name = "btnRefreshLights";
+            this.btnRefreshLights.Size = new System.Drawing.Size(80, 39);
+            this.btnRefreshLights.TabIndex = 18;
+            this.btnRefreshLights.Text = "Refresh Lights";
+            this.btnRefreshLights.UseVisualStyleBackColor = true;
+            this.btnRefreshLights.Click += new System.EventHandler(this.btnRefreshLights_Click);
+            // 
             // lstLights
             // 
             this.lstLights.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.lstLights.ForeColor = System.Drawing.Color.White;
             this.lstLights.FormattingEnabled = true;
-            this.lstLights.Location = new System.Drawing.Point(14, 86);
+            this.lstLights.Location = new System.Drawing.Point(6, 93);
             this.lstLights.Name = "lstLights";
-            this.lstLights.Size = new System.Drawing.Size(251, 82);
+            this.lstLights.Size = new System.Drawing.Size(286, 82);
             this.lstLights.TabIndex = 11;
             this.lstLights.SelectedIndexChanged += new System.EventHandler(this.lstLights_SelectedIndexChanged);
             // 
@@ -279,31 +353,18 @@
             this.lblTitle3.AutoSize = true;
             this.lblTitle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.lblTitle3.ForeColor = System.Drawing.Color.White;
-            this.lblTitle3.Location = new System.Drawing.Point(10, 44);
+            this.lblTitle3.Location = new System.Drawing.Point(10, 25);
             this.lblTitle3.Name = "lblTitle3";
             this.lblTitle3.Size = new System.Drawing.Size(124, 20);
             this.lblTitle3.TabIndex = 9;
             this.lblTitle3.Text = "3.Choose Lights";
             // 
-            // grpExtra
-            // 
-            this.grpExtra.Controls.Add(this.btnRefresh);
-            this.grpExtra.Controls.Add(this.btnOnOff);
-            this.grpExtra.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.grpExtra.ForeColor = System.Drawing.Color.White;
-            this.grpExtra.Location = new System.Drawing.Point(627, 206);
-            this.grpExtra.Name = "grpExtra";
-            this.grpExtra.Size = new System.Drawing.Size(98, 190);
-            this.grpExtra.TabIndex = 15;
-            this.grpExtra.TabStop = false;
-            this.grpExtra.Text = "Extras";
-            // 
             // PCHueController
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(737, 486);
-            this.Controls.Add(this.grpExtra);
+            this.ClientSize = new System.Drawing.Size(798, 472);
+            this.Controls.Add(this.btnOnOff);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.txtResults);
             this.Controls.Add(this.lblCurrent);
@@ -319,7 +380,6 @@
             this.grpColour.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            this.grpExtra.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -335,18 +395,23 @@
         private System.Windows.Forms.Button btnNewColour;
         private System.Windows.Forms.Label lblTitle2;
         private System.Windows.Forms.Label lblTitle4;
-        private System.Windows.Forms.TextBox txtInputKey;
+        private System.Windows.Forms.TextBox txtKey;
         private System.Windows.Forms.Button btnConnect;
         private System.Windows.Forms.TextBox txtResults;
         private System.Windows.Forms.GroupBox grpConnection;
         private System.Windows.Forms.GroupBox grpColour;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label lblTitle3;
-        private System.Windows.Forms.Button btnRefresh;
+        private System.Windows.Forms.Button btnRefreshScene;
         private System.Windows.Forms.ListBox lstLights;
         private System.Windows.Forms.ListBox lstScenes;
         private System.Windows.Forms.Button btnOnOff;
-        private System.Windows.Forms.GroupBox grpExtra;
+        private System.Windows.Forms.Button btnRefreshHubs;
+        private System.Windows.Forms.TextBox txtDeviceName;
+        private System.Windows.Forms.TextBox txtAppName;
+        private System.Windows.Forms.Label lblDeviceName;
+        private System.Windows.Forms.Label lblAppName;
+        private System.Windows.Forms.Button btnRefreshLights;
     }
 }
 
