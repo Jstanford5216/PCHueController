@@ -61,6 +61,7 @@
             // 
             // pnlCurrentSwatch
             // 
+            this.pnlCurrentSwatch.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.pnlCurrentSwatch.BackColor = System.Drawing.Color.White;
             this.pnlCurrentSwatch.Location = new System.Drawing.Point(691, 39);
             this.pnlCurrentSwatch.Name = "pnlCurrentSwatch";
@@ -69,6 +70,7 @@
             // 
             // lblCurrent
             // 
+            this.lblCurrent.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblCurrent.AutoSize = true;
             this.lblCurrent.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.lblCurrent.ForeColor = System.Drawing.Color.White;
@@ -80,6 +82,7 @@
             // 
             // btnRegister
             // 
+            this.btnRegister.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btnRegister.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.btnRegister.ForeColor = System.Drawing.Color.White;
             this.btnRegister.Location = new System.Drawing.Point(259, 295);
@@ -92,6 +95,7 @@
             // 
             // lstHubs
             // 
+            this.lstHubs.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lstHubs.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.lstHubs.ForeColor = System.Drawing.Color.White;
             this.lstHubs.FormattingEnabled = true;
@@ -103,6 +107,7 @@
             // 
             // lblTitle1
             // 
+            this.lblTitle1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblTitle1.AutoSize = true;
             this.lblTitle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.lblTitle1.ForeColor = System.Drawing.Color.White;
@@ -114,6 +119,7 @@
             // 
             // btnNewColour
             // 
+            this.btnNewColour.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btnNewColour.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.btnNewColour.ForeColor = System.Drawing.Color.White;
             this.btnNewColour.Image = ((System.Drawing.Image)(resources.GetObject("btnNewColour.Image")));
@@ -128,6 +134,7 @@
             // 
             // lblTitle2
             // 
+            this.lblTitle2.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblTitle2.AutoSize = true;
             this.lblTitle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.lblTitle2.ForeColor = System.Drawing.Color.White;
@@ -139,6 +146,7 @@
             // 
             // lblTitle4
             // 
+            this.lblTitle4.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblTitle4.AutoSize = true;
             this.lblTitle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.lblTitle4.ForeColor = System.Drawing.Color.White;
@@ -150,6 +158,7 @@
             // 
             // txtKey
             // 
+            this.txtKey.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.txtKey.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.txtKey.ForeColor = System.Drawing.Color.White;
             this.txtKey.Location = new System.Drawing.Point(9, 328);
@@ -161,6 +170,7 @@
             // 
             // btnConnect
             // 
+            this.btnConnect.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btnConnect.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.btnConnect.ForeColor = System.Drawing.Color.White;
             this.btnConnect.Location = new System.Drawing.Point(259, 328);
@@ -173,6 +183,7 @@
             // 
             // txtResults
             // 
+            this.txtResults.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.txtResults.BackColor = System.Drawing.Color.DarkGreen;
             this.txtResults.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtResults.ForeColor = System.Drawing.Color.White;
@@ -188,6 +199,7 @@
             // 
             // grpConnection
             // 
+            this.grpConnection.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.grpConnection.Controls.Add(this.lblDeviceName);
             this.grpConnection.Controls.Add(this.lblAppName);
             this.grpConnection.Controls.Add(this.txtDeviceName);
@@ -210,6 +222,7 @@
             // 
             // lblDeviceName
             // 
+            this.lblDeviceName.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblDeviceName.AutoSize = true;
             this.lblDeviceName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.lblDeviceName.Location = new System.Drawing.Point(133, 277);
@@ -220,6 +233,7 @@
             // 
             // lblAppName
             // 
+            this.lblAppName.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblAppName.AutoSize = true;
             this.lblAppName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.lblAppName.Location = new System.Drawing.Point(6, 277);
@@ -230,6 +244,7 @@
             // 
             // txtDeviceName
             // 
+            this.txtDeviceName.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.txtDeviceName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.txtDeviceName.ForeColor = System.Drawing.Color.White;
             this.txtDeviceName.Location = new System.Drawing.Point(136, 296);
@@ -240,6 +255,7 @@
             // 
             // txtAppName
             // 
+            this.txtAppName.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.txtAppName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.txtAppName.ForeColor = System.Drawing.Color.White;
             this.txtAppName.Location = new System.Drawing.Point(9, 296);
@@ -250,6 +266,7 @@
             // 
             // btnRefreshHubs
             // 
+            this.btnRefreshHubs.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btnRefreshHubs.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.btnRefreshHubs.ForeColor = System.Drawing.Color.White;
             this.btnRefreshHubs.Location = new System.Drawing.Point(139, 48);
@@ -262,6 +279,7 @@
             // 
             // grpColour
             // 
+            this.grpColour.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.grpColour.Controls.Add(this.btnRefreshScene);
             this.grpColour.Controls.Add(this.lstScenes);
             this.grpColour.Controls.Add(this.lblTitle4);
@@ -277,6 +295,7 @@
             // 
             // btnRefreshScene
             // 
+            this.btnRefreshScene.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btnRefreshScene.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.btnRefreshScene.ForeColor = System.Drawing.Color.White;
             this.btnRefreshScene.Location = new System.Drawing.Point(152, 57);
@@ -289,6 +308,7 @@
             // 
             // lstScenes
             // 
+            this.lstScenes.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lstScenes.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.lstScenes.ForeColor = System.Drawing.Color.White;
             this.lstScenes.FormattingEnabled = true;
@@ -300,6 +320,7 @@
             // 
             // btnOnOff
             // 
+            this.btnOnOff.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btnOnOff.BackgroundImage = global::PCHueController.Properties.Resources.On;
             this.btnOnOff.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnOnOff.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
@@ -313,6 +334,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.groupBox2.Controls.Add(this.btnRefreshLights);
             this.groupBox2.Controls.Add(this.lstLights);
             this.groupBox2.Controls.Add(this.lblTitle3);
@@ -327,6 +349,7 @@
             // 
             // btnRefreshLights
             // 
+            this.btnRefreshLights.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btnRefreshLights.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.btnRefreshLights.ForeColor = System.Drawing.Color.White;
             this.btnRefreshLights.Location = new System.Drawing.Point(111, 48);
@@ -339,6 +362,7 @@
             // 
             // lstLights
             // 
+            this.lstLights.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lstLights.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.lstLights.ForeColor = System.Drawing.Color.White;
             this.lstLights.FormattingEnabled = true;
@@ -350,6 +374,7 @@
             // 
             // lblTitle3
             // 
+            this.lblTitle3.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblTitle3.AutoSize = true;
             this.lblTitle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.lblTitle3.ForeColor = System.Drawing.Color.White;
@@ -371,7 +396,9 @@
             this.Controls.Add(this.pnlCurrentSwatch);
             this.Controls.Add(this.grpConnection);
             this.Controls.Add(this.grpColour);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "PCHueController";
             this.Text = "PCHueController";
             this.grpConnection.ResumeLayout(false);
