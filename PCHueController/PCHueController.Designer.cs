@@ -54,6 +54,7 @@
             this.btnRefreshLights = new System.Windows.Forms.Button();
             this.lstLights = new System.Windows.Forms.ListBox();
             this.lblTitle3 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.grpConnection.SuspendLayout();
             this.grpColour.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -384,11 +385,24 @@
             this.lblTitle3.TabIndex = 9;
             this.lblTitle3.Text = "3.Choose Lights";
             // 
+            // label1
+            // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(684, 250);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(109, 52);
+            this.label1.TabIndex = 18;
+            this.label1.Text = "To disable disco, \r\nturn off lights, \r\nswitch scene or \r\nchange a light colour.";
+            // 
             // PCHueController
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(798, 472);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.btnOnOff);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.txtResults);
@@ -439,6 +453,7 @@
         private System.Windows.Forms.Label lblDeviceName;
         private System.Windows.Forms.Label lblAppName;
         private System.Windows.Forms.Button btnRefreshLights;
+        private System.Windows.Forms.Label label1;
     }
 }
 
