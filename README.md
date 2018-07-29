@@ -1,7 +1,6 @@
 # PCHueController
 
 <p align="center">
-<img src="https://ci.appveyor.com/api/projects/status/qtixt9xkn98xluvq/branch/master?svg=true" style="max-height: 300px;">
 <a href="https://www.microsoft.com/net"><img src="https://img.shields.io/badge/.NET%20Framework-4.6.1-orange.svg" style="max-height: 300px;"></a>
 <img src="https://img.shields.io/badge/Platform-.NET Forms-lightgrey.svg" style="max-height: 300px;" alt="Platform: Windows">
 </p>
