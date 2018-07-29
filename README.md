@@ -1,7 +1,6 @@
 # PCHueController
 
 <p align="center">
-<a href="https://ci.appveyor.com/project/Jstanford5216/PCHueController"><img src="https://ci.appveyor.com/api/projects/status/qtixt9xkn98xluvq/branch/master?svg=true" style="max-height: 300px;"></a>
 <a href="https://www.microsoft.com/net"><img src="https://img.shields.io/badge/.NET%20Framework-4.6.1-orange.svg" style="max-height: 300px;"></a>
 <img src="https://img.shields.io/badge/Platform-.NET Forms-lightgrey.svg" style="max-height: 300px;" alt="Platform: Windows">
 </p>
@@ -21,7 +20,7 @@ This is a Hue Lights controller for use with pc instead of mobile as i personall
 
 * Make disco feature two buttons to turn on and off instead of being forced to turn lights off,switch scene or choose new
 colour
-*Toggle for showing all scenes
+* Toggle for showing all scenes
 
 ## How to use
 
@@ -34,8 +33,7 @@ please keep this safe or you will need to register again.The other option is to 
 choose a scene or turn them on and off. The colour options won't look 100% the same this is an issue with using an 
 existing colour palette as i didn't want to invest too much time into making my own. The scenes also only display 
 custom scenes at the moment, this can be changed however the names won't make much sense so it then becomes a lottery draw.
-If you would like to show all scenes anyway then line 256 in PCHueController.cs needs to be changed to
-`scenes = client.GetScenesAsync().Result;`.
+If you would like to show all scenes anyway then line 256 in PCHueController.cs needs to be changed to `scenes = client.GetScenesAsync().Result;`.
 
 ## Installation
 
