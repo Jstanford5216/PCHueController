@@ -46,6 +46,7 @@ If you come across any issues while using this program or have any suggestions, 
 
 ## Dependencies
 
+* Hue Hub & lights hardware
 * Q42.HueApi v3.6.7 ([nuget link](https://www.nuget.org/packages/Q42.HueApi/3.6.7)) ([GitHub](https://github.com/Q42/Q42.HueApi))
 * Q42.HueApi.ColorConverters v3.6.2 ([nuget link](https://www.nuget.org/packages/Q42.HueApi.ColorConverters/3.6.2)) ([GitHub](https://github.com/Q42/Q42.HueApi))
 
