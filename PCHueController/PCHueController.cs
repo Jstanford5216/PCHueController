@@ -260,7 +260,6 @@ namespace PCHueController
                         lstScenes.Items.Clear(); //Clear scenes listbox.
 
                         lstScenes.Items.Add("Color loop"); //Add additional scenes.
-                        lstScenes.Items.Add("Disco");
 
                         scenes = client.GetScenesAsync().Result.Where(s => !s.Name.Contains("Scene")); //Only show custom scenes. 
 
@@ -357,7 +356,6 @@ namespace PCHueController
                 lstScenes.Items.Clear();
 
                 lstScenes.Items.Add("Color loop");
-                lstScenes.Items.Add("Disco");
 
                 scenes = client.GetScenesAsync().Result.Where(s => !s.Name.Contains("Scene"));
 
@@ -394,15 +392,6 @@ namespace PCHueController
                     commandSender(command);
 
                     btnOnOff.BackgroundImage = Properties.Resources.On; 
-                }
-
-                else if (sceneIndex == "Disco")
-                {
-                    discoToggle = true;
-
-                    discoThread(); //Begin disco threads.
-
-                    btnOnOff.BackgroundImage = Properties.Resources.On;
                 }
 
                 else //If not colour loop or disco then it is a normal theme so disable disco and send the scene to the method.
@@ -570,6 +559,23 @@ namespace PCHueController
                 txtResults.Show();
                 txtResults.Text = "Connection failed, please make sure you are connected to the internet and have pressed connect.";
             }
+        }
+
+        private void btnDisco_Click(object sender, EventArgs e)
+        {
+            if (discoToggle == false) //If disco hasn't started yet then turn it on
+            {
+                discoToggle = true;
+                discoThread(); //Begin disco threads.
+
+                btnOnOff.BackgroundImage = Properties.Resources.On;
+            }
+            else //If disco is on then turn it off
+            { 
+                discoToggle = false;
+
+                btnOnOff.BackgroundImage = Properties.Resources.Off;
+            } 
         }
     }
 }

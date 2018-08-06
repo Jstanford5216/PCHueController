@@ -54,17 +54,19 @@
             this.btnRefreshLights = new System.Windows.Forms.Button();
             this.lstLights = new System.Windows.Forms.ListBox();
             this.lblTitle3 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.grpExtras = new System.Windows.Forms.GroupBox();
+            this.btnDisco = new System.Windows.Forms.Button();
             this.grpConnection.SuspendLayout();
             this.grpColour.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.grpExtras.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlCurrentSwatch
             // 
             this.pnlCurrentSwatch.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.pnlCurrentSwatch.BackColor = System.Drawing.Color.White;
-            this.pnlCurrentSwatch.Location = new System.Drawing.Point(691, 39);
+            this.pnlCurrentSwatch.Location = new System.Drawing.Point(731, 39);
             this.pnlCurrentSwatch.Name = "pnlCurrentSwatch";
             this.pnlCurrentSwatch.Size = new System.Drawing.Size(86, 60);
             this.pnlCurrentSwatch.TabIndex = 0;
@@ -75,7 +77,7 @@
             this.lblCurrent.AutoSize = true;
             this.lblCurrent.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.lblCurrent.ForeColor = System.Drawing.Color.White;
-            this.lblCurrent.Location = new System.Drawing.Point(677, 16);
+            this.lblCurrent.Location = new System.Drawing.Point(719, 16);
             this.lblCurrent.Name = "lblCurrent";
             this.lblCurrent.Size = new System.Drawing.Size(116, 20);
             this.lblCurrent.TabIndex = 0;
@@ -188,7 +190,7 @@
             this.txtResults.BackColor = System.Drawing.Color.DarkGreen;
             this.txtResults.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtResults.ForeColor = System.Drawing.Color.White;
-            this.txtResults.Location = new System.Drawing.Point(235, 404);
+            this.txtResults.Location = new System.Drawing.Point(259, 404);
             this.txtResults.MaxLength = 50;
             this.txtResults.Multiline = true;
             this.txtResults.Name = "txtResults";
@@ -214,7 +216,7 @@
             this.grpConnection.Controls.Add(this.lstHubs);
             this.grpConnection.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
             this.grpConnection.ForeColor = System.Drawing.Color.White;
-            this.grpConnection.Location = new System.Drawing.Point(12, 12);
+            this.grpConnection.Location = new System.Drawing.Point(36, 12);
             this.grpConnection.Name = "grpConnection";
             this.grpConnection.Size = new System.Drawing.Size(355, 384);
             this.grpConnection.TabIndex = 12;
@@ -287,7 +289,7 @@
             this.grpColour.Controls.Add(this.btnNewColour);
             this.grpColour.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
             this.grpColour.ForeColor = System.Drawing.Color.White;
-            this.grpColour.Location = new System.Drawing.Point(373, 206);
+            this.grpColour.Location = new System.Drawing.Point(397, 206);
             this.grpColour.Name = "grpColour";
             this.grpColour.Size = new System.Drawing.Size(298, 190);
             this.grpColour.TabIndex = 13;
@@ -326,7 +328,7 @@
             this.btnOnOff.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnOnOff.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.btnOnOff.ForeColor = System.Drawing.Color.White;
-            this.btnOnOff.Location = new System.Drawing.Point(702, 105);
+            this.btnOnOff.Location = new System.Drawing.Point(743, 105);
             this.btnOnOff.Name = "btnOnOff";
             this.btnOnOff.Size = new System.Drawing.Size(58, 99);
             this.btnOnOff.TabIndex = 13;
@@ -341,7 +343,7 @@
             this.groupBox2.Controls.Add(this.lblTitle3);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
             this.groupBox2.ForeColor = System.Drawing.Color.White;
-            this.groupBox2.Location = new System.Drawing.Point(373, 12);
+            this.groupBox2.Location = new System.Drawing.Point(397, 12);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(298, 188);
             this.groupBox2.TabIndex = 14;
@@ -385,24 +387,37 @@
             this.lblTitle3.TabIndex = 9;
             this.lblTitle3.Text = "3.Choose Lights";
             // 
-            // label1
+            // grpExtras
             // 
-            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(684, 250);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(109, 52);
-            this.label1.TabIndex = 18;
-            this.label1.Text = "To disable disco, \r\nturn off lights, \r\nswitch scene or \r\nchange a light colour.";
+            this.grpExtras.Controls.Add(this.btnDisco);
+            this.grpExtras.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.grpExtras.ForeColor = System.Drawing.Color.White;
+            this.grpExtras.Location = new System.Drawing.Point(705, 206);
+            this.grpExtras.Name = "grpExtras";
+            this.grpExtras.Size = new System.Drawing.Size(130, 190);
+            this.grpExtras.TabIndex = 15;
+            this.grpExtras.TabStop = false;
+            this.grpExtras.Text = "Extras";
+            // 
+            // btnDisco
+            // 
+            this.btnDisco.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.btnDisco.Image = ((System.Drawing.Image)(resources.GetObject("btnDisco.Image")));
+            this.btnDisco.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnDisco.Location = new System.Drawing.Point(6, 28);
+            this.btnDisco.Name = "btnDisco";
+            this.btnDisco.Size = new System.Drawing.Size(118, 41);
+            this.btnDisco.TabIndex = 0;
+            this.btnDisco.Text = "Disco Mode";
+            this.btnDisco.UseVisualStyleBackColor = true;
+            this.btnDisco.Click += new System.EventHandler(this.btnDisco_Click);
             // 
             // PCHueController
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(798, 472);
-            this.Controls.Add(this.label1);
+            this.ClientSize = new System.Drawing.Size(847, 472);
+            this.Controls.Add(this.grpExtras);
             this.Controls.Add(this.btnOnOff);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.txtResults);
@@ -421,6 +436,7 @@
             this.grpColour.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            this.grpExtras.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -453,7 +469,8 @@
         private System.Windows.Forms.Label lblDeviceName;
         private System.Windows.Forms.Label lblAppName;
         private System.Windows.Forms.Button btnRefreshLights;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.GroupBox grpExtras;
+        private System.Windows.Forms.Button btnDisco;
     }
 }
 
