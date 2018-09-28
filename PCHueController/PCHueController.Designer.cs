@@ -416,6 +416,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(847, 472);
             this.Controls.Add(this.grpExtras);
             this.Controls.Add(this.btnOnOff);
@@ -425,6 +426,7 @@
             this.Controls.Add(this.pnlCurrentSwatch);
             this.Controls.Add(this.grpConnection);
             this.Controls.Add(this.grpColour);
+            this.ForeColor = System.Drawing.SystemColors.WindowText;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
