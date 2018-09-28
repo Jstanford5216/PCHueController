@@ -109,6 +109,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
+    <Compile Include="obj\Release\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
+    <Compile Include="obj\Release\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
+    <Compile Include="obj\Release\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
     <Compile Include="PCHueController.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -117,6 +123,10 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="obj\Debug\PCHueController.PCHueController.resources" />
+    <EmbeddedResource Include="obj\Debug\PCHueController.Properties.Resources.resources" />
+    <EmbeddedResource Include="obj\Release\PCHueController.PCHueController.resources" />
+    <EmbeddedResource Include="obj\Release\PCHueController.Properties.Resources.resources" />
     <EmbeddedResource Include="PCHueController.resx">
       <DependentUpon>PCHueController.cs</DependentUpon>
     </EmbeddedResource>
@@ -125,6 +135,18 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="bin\Debug\PCHueController.exe.config" />
+    <None Include="bin\Release\PCHueController.exe.config" />
+    <None Include="obj\Debug\DesignTimeResolveAssemblyReferences.cache" />
+    <None Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
+    <None Include="obj\Debug\PCHueController.csproj.CopyComplete" />
+    <None Include="obj\Debug\PCHueController.csproj.CoreCompileInputs.cache" />
+    <None Include="obj\Debug\PCHueController.csproj.GenerateResource.cache" />
+    <None Include="obj\Debug\PCHueController.csprojAssemblyReference.cache" />
+    <None Include="obj\Release\PCHueController.csproj.CopyComplete" />
+    <None Include="obj\Release\PCHueController.csproj.CoreCompileInputs.cache" />
+    <None Include="obj\Release\PCHueController.csproj.GenerateResource.cache" />
+    <None Include="obj\Release\PCHueController.csprojAssemblyReference.cache" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -149,6 +171,62 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Disco.jpg" />
+    <Content Include="bin\Debug\Microsoft.Win32.Primitives.dll" />
+    <Content Include="bin\Debug\Newtonsoft.Json.dll" />
+    <Content Include="bin\Debug\Newtonsoft.Json.xml" />
+    <Content Include="bin\Debug\PCHueController.exe" />
+    <Content Include="bin\Debug\PCHueController.pdb" />
+    <Content Include="bin\Debug\Q42.HueApi.ColorConverters.dll" />
+    <Content Include="bin\Debug\Q42.HueApi.dll" />
+    <Content Include="bin\Debug\System.AppContext.dll" />
+    <Content Include="bin\Debug\System.Console.dll" />
+    <Content Include="bin\Debug\System.Diagnostics.DiagnosticSource.dll" />
+    <Content Include="bin\Debug\System.Diagnostics.DiagnosticSource.xml" />
+    <Content Include="bin\Debug\System.Globalization.Calendars.dll" />
+    <Content Include="bin\Debug\System.IO.Compression.dll" />
+    <Content Include="bin\Debug\System.IO.Compression.ZipFile.dll" />
+    <Content Include="bin\Debug\System.IO.FileSystem.dll" />
+    <Content Include="bin\Debug\System.IO.FileSystem.Primitives.dll" />
+    <Content Include="bin\Debug\System.Net.Http.dll" />
+    <Content Include="bin\Debug\System.Net.Sockets.dll" />
+    <Content Include="bin\Debug\System.Runtime.InteropServices.RuntimeInformation.dll" />
+    <Content Include="bin\Debug\System.Security.Cryptography.Algorithms.dll" />
+    <Content Include="bin\Debug\System.Security.Cryptography.Encoding.dll" />
+    <Content Include="bin\Debug\System.Security.Cryptography.Primitives.dll" />
+    <Content Include="bin\Debug\System.Security.Cryptography.X509Certificates.dll" />
+    <Content Include="bin\Debug\System.Xml.ReaderWriter.dll" />
+    <Content Include="bin\Release\Microsoft.Win32.Primitives.dll" />
+    <Content Include="bin\Release\Newtonsoft.Json.dll" />
+    <Content Include="bin\Release\Newtonsoft.Json.xml" />
+    <Content Include="bin\Release\PCHueController.exe" />
+    <Content Include="bin\Release\PCHueController.pdb" />
+    <Content Include="bin\Release\Q42.HueApi.ColorConverters.dll" />
+    <Content Include="bin\Release\Q42.HueApi.dll" />
+    <Content Include="bin\Release\System.AppContext.dll" />
+    <Content Include="bin\Release\System.Console.dll" />
+    <Content Include="bin\Release\System.Diagnostics.DiagnosticSource.dll" />
+    <Content Include="bin\Release\System.Diagnostics.DiagnosticSource.xml" />
+    <Content Include="bin\Release\System.Globalization.Calendars.dll" />
+    <Content Include="bin\Release\System.IO.Compression.dll" />
+    <Content Include="bin\Release\System.IO.Compression.ZipFile.dll" />
+    <Content Include="bin\Release\System.IO.FileSystem.dll" />
+    <Content Include="bin\Release\System.IO.FileSystem.Primitives.dll" />
+    <Content Include="bin\Release\System.Net.Http.dll" />
+    <Content Include="bin\Release\System.Net.Sockets.dll" />
+    <Content Include="bin\Release\System.Runtime.InteropServices.RuntimeInformation.dll" />
+    <Content Include="bin\Release\System.Security.Cryptography.Algorithms.dll" />
+    <Content Include="bin\Release\System.Security.Cryptography.Encoding.dll" />
+    <Content Include="bin\Release\System.Security.Cryptography.Primitives.dll" />
+    <Content Include="bin\Release\System.Security.Cryptography.X509Certificates.dll" />
+    <Content Include="bin\Release\System.Xml.ReaderWriter.dll" />
+    <Content Include="obj\Debug\PCHueController.csproj.FileListAbsolute.txt" />
+    <Content Include="obj\Debug\PCHueController.exe" />
+    <Content Include="obj\Debug\PCHueController.pdb" />
+    <Content Include="obj\Debug\TempPE\Properties.Resources.Designer.cs.dll" />
+    <Content Include="obj\Release\PCHueController.csproj.FileListAbsolute.txt" />
+    <Content Include="obj\Release\PCHueController.exe" />
+    <Content Include="obj\Release\PCHueController.pdb" />
+    <Content Include="obj\Release\TempPE\Properties.Resources.Designer.cs.dll" />
     <Content Include="Resources\Logo_Large.png" />
     <Content Include="Resources\Logo_small.ico" />
     <Content Include="Resources\Off.png" />
