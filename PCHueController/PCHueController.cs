@@ -11,6 +11,7 @@ using Q42.HueApi;
 using Q42.HueApi.Interfaces;
 using Q42.HueApi.Models.Bridge;
 using Q42.HueApi.Models;
+using Q42.HueApi.Models.Groups;
 using Q42.HueApi.ColorConverters;
 using Q42.HueApi.ColorConverters.OriginalWithModel;
 using System.Threading;
@@ -125,7 +126,28 @@ namespace PCHueController
                 }
             }
 
-            await client.RecallSceneAsync(id,"0"); //Send command to change the scene.
+            string selectedGroup = "";
+
+            List <Group> g = new List<Group>();
+
+            foreach (Group f in client.GetGroupsAsync().Result)
+            {
+                g.Add(f);
+            }
+
+            Light l = client.GetLightAsync(selectedLights[0]).Result;
+
+            foreach (Group t in g)
+            {
+                List<string> s = t.Lights;
+
+                if (s.Contains(selectedLights[0]))
+                {
+                    selectedGroup = t.Id;
+                }
+            }
+
+            await client.RecallSceneAsync(id,selectedGroup); //Send command to change the scene.
         }
 
         public async Task RegisterTask()
